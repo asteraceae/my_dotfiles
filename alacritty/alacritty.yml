@@ -1,0 +1,117 @@
+---
+# Pretty standard alacritty config
+
+env:
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 75
+    lines: 24
+
+  padding:
+    x: 20
+    y: 30
+  
+  opacity: 1.0
+
+  dynamic_padding: false
+
+font:
+  normal:
+    family: iosevka
+    style: light
+
+  bold:
+    family: iosevka
+    style: Bold
+
+  italic:
+    family: iosevka
+    style: Italic
+
+  bold_italic:
+    family: iosevka
+    style: Bold Italic
+
+  size: 13
+  scale_with_dpi: true
+  use_thin_strokes: false
+
+cursor_style: Beam
+
+# Background opacity
+
+# Keybinds
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+mouse:
+  # Click settings
+  #
+  # The `double_click` and `triple_click` settings control the time
+  # alacritty should wait for accepting multiple clicks as one double
+  # or triple click.
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  hints:
+      # URL launcher
+      #
+      # This program is executed when clicking on a text which is recognized as a URL.
+      # The URL is always added to the command as the last parameter.
+      launcher: open
+
+      # URL modifiers
+      #
+      # These are the modifiers that need to be held down for opening URLs when clicking
+      # on them. The available modifiers are documented in the key binding section.
+      modifiers: Shift
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
+
+window.dynamic_title: true
+
+
+colors:
+  # Default colors
+  primary:
+    background: '#2e3440'
+    foreground: '0xffffff'
+
+  # Normal colors
+  normal:
+    black:   '0x666666'
+    red:     '0xcc6699'
+    green:   '0x66cc99'
+    yellow:  '0xe6d083'
+    blue:    '0x6699cc'
+    magenta: '0x9966cc'
+    cyan:    '0x45e6ff'
+    white:   '0xffffff'
+
+  # Bright colors
+  bright:
+    black:   '0x999999'
+    red:     '0xff99cc'
+    green:   '0x99ffcc'
+    yellow:  '0xebddaa'
+    blue:    '0x99ccff'
+    magenta: '0xcc99ff'
+    cyan:    '0x99f1ff'
+    white:   '0xffffff'
+
+
+
+key_bindings:
+  - { key: V,        mods: Alt,     action: Paste           }
+  - { key: C,        mods: Alt,     action: Copy            }
+  - { key: Key0,     mods: Control, action: ResetFontSize   }
+  - { key: Equals,   mods: Alt,     action: IncreaseFontSize}
+  - { key: Minus,    mods: Alt,     action: DecreaseFontSize}
+  - { key: K,        mods: Control, action: ClearHistory    }
+
